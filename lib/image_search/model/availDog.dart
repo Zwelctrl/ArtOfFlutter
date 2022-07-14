@@ -11,7 +11,7 @@ class AvailableDogs {
     _message.forEach((key, value) {
       data.add(key.toString());
     });
-
+    // print(_message);
     return AvailableDogs._(data);
   }
 }

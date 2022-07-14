@@ -10,7 +10,9 @@ import 'package:learn_flutter/container.dart';
 import 'package:learn_flutter/buttons.dart';
 import 'package:learn_flutter/20zoom.dart';
 import 'package:learn_flutter/dropdownExp.dart';
-import 'package:learn_flutter/image_search/view/service/apiService.dart';
+import 'package:learn_flutter/image_search/service/apiService.dart';
+import 'package:learn_flutter/image_search/view/img_search_home.dart';
+
 import 'package:learn_flutter/inkWellAndGesture.dart';
 import 'package:learn_flutter/radioExp.dart';
 import 'package:learn_flutter/revision.dart';
@@ -19,6 +21,9 @@ import 'package:learn_flutter/screens/homepage.dart';
 import 'package:learn_flutter/stack.dart';
 import 'package:learn_flutter/switchAndCheck.dart';
 import 'package:learn_flutter/test.dart';
+import 'package:learn_flutter/test_package/model/dog_model.dart';
+import 'package:learn_flutter/test_package/service/api_services.dart';
+// import 'package:learn_flutter/testPackage/service/apiServices.dart';
 import 'package:learn_flutter/text_field.dart';
 
 import '26zoom_Dice/Dice_container.dart';
@@ -26,7 +31,8 @@ import '26zoom_Dice/Dice_container.dart';
 void main() {
   print('Start From Main');
 
-  APIservice().availableDogs();
+  APIservice.instance();
+  // APIservice().availableDogs();
   // APIservice().getDog('https://dog.ceo/api/breeds/image/random');
   runApp(MyApp());
 }
@@ -56,7 +62,8 @@ class MyApp extends StatelessWidget {
       // home: Counter(),
       // home: RevisionExp(),
       // home: HomePage(),
-      home: OnePage(),
+      // home: OnePage(),
+      home: ImageSearchHomePage(),
     );
   }
 }

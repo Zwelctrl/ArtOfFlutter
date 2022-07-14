@@ -17,14 +17,34 @@ class _API {
 }
 
 class APIservice extends _API {
+  AvailableDogs? aval;
 
-  // getting available dogs (List နဲ့ ထုတ်သည်)
+  // put data in class AvailableDogs model and stored in APIservice's instance
+  APIservice._() {
+    availableDogs().then((value) {
+      aval = value;
+    });
+  }
+
+  // stored in static, therefore instance of the class is only one
+  // created in private, therefor it cant be accessed from anywhere
+  static APIservice? _instance;
+
+  static APIservice instance() {
+    // return _instance == null ? _instance = APIservice._() : _instance;
+
+    // single instance
+    _instance ??= APIservice._();
+    return _instance!;
+  }
+
+  // getting available dogs (Map နဲ့ ထုတ်သည်)
   Future<AvailableDogs?> availableDogs() async {
     Map<String, dynamic>? _result =
         await get('https://dog.ceo/api/breeds/list/all');
     if (_result == null) return null;
-    return AvailableDogs.fromJSON(_result);
     // print(_result);
+    return AvailableDogs.fromJSON(_result);
   }
 
   // getting a dog (String နဲ့ ထုတ်သည်)
