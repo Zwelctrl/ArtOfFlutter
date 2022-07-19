@@ -17,7 +17,7 @@ class _API {
 }
 
 class APIservice extends _API {
-  AvailableDogs? aval;
+  AvailableDogs? aval;   // instance of AvailableDogs()
 
   // put data in class AvailableDogs model and stored in APIservice's instance
   APIservice._() {
@@ -26,7 +26,7 @@ class APIservice extends _API {
     });
   }
 
-  // stored in static, therefore instance of the class is only one
+  // stored in static, therefore instance of the class is only ones
   // created in private, therefor it cant be accessed from anywhere
   static APIservice? _instance;
 
